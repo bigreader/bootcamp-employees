@@ -10,6 +10,7 @@
     <script src="main.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
     <script src="https://www.gstatic.com/firebasejs/5.8.6/firebase.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -19,49 +20,48 @@
 </head>
 
 <body>
-    <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-            <h1 class="display-4">Employee Data Management</h1>
-            <p class="lead"><strong>comprehensive Directory of Employee Billable Hours</strong> </p>
-        </div>
+
+    <div class="display">
+        <h1>Employee Data Management</h1>
+        <p><strong>comprehensive Directory of Employee Billable Hours</strong> </p>
     </div>
+    <div class=" container">
+        <table class="table" id="employee-table">
+            <thead>
+                <tr>
+                    <th scope="col">Employee Name</th>
+                    <th scope="col">Role</th>
+                    <th scope="col">Start Date</th>
+                    <th scope="col">months Worked</th>
+                    <th scope="col">Monthly Bill</th>
+                    <th scope="col">Total Billed </th>
+                </tr>
+            </thead>
 
-    <table class="table" id="employee-table">
-        <thead>
-            <tr>
-                <th scope="col">Employee Name</th>
-                <th scope="col">Role</th>
-                <th scope="col">Start Date</th>
-                <th scope="col">months Worked</th>
-                <th scope="col">Monthly Bill</th>
-                <th scope="col">Total Billed </th>
-            </tr>
-        </thead>
-
-    </table>
-
-
-    <form id="employee-form">
-        <div class="form-group">
-            <label for="exampleInputEmail1">Employee Name</label>
-            <input type="" class="form-control" id="name" placeholder="Employee Name">
-            <label for="exampleInputEmail1">Role</label>
-            <input type="" class="form-control" id="role" placeholder="Role">
-            <label for="exampleInputEmail1">Start Date</label>
-            <input type="" class="form-control" id="start" placeholder="Start Date">
-            <label for="exampleInputEmail1">months Worked</label>
-            <input type="" class="form-control" id="months" placeholder="Month worked">
-            <label for="exampleInputEmail1">Monthly Bill</label>
-            <input type="" class="form-control" id="mbill" placeholder="Monthly Bill">
-            <label for="exampleInputEmail1">Total Billed </label>
-            <input type="" class="form-control" id="tbill" placeholder="Total Billed">
+        </table>
 
 
-        </div>
+        <form id="employee-form">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Employee Name</label>
+                <input type="" class="form-control" id="name" placeholder="Employee Name">
+                <label for="exampleInputEmail1">Role</label>
+                <input type="" class="form-control" id="role" placeholder="Role">
+                <label for="exampleInputEmail1">Start Date</label>
+                <input type="" class="form-control" id="start" placeholder="Start Date">
+                <label for="exampleInputEmail1">months Worked</label>
+                <input type="" class="form-control" id="months" placeholder="Month worked">
+                <label for="exampleInputEmail1">Monthly Bill</label>
+                <input type="" class="form-control" id="mbill" placeholder="Monthly Bill">
+                <label for="exampleInputEmail1">Total Billed </label>
+                <input type="" class="form-control" id="tbill" placeholder="Total Billed">
 
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
 
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
 </body>
 
 </html>

@@ -1,0 +1,30 @@
+.container {
+    max-width: 900px;
+
+
+
+}
+.display{
+    margin:0 auto;
+    text-align: center;
+    height:120px;
+    background: grey;
+    padding-top:15px;
+    border: 2px solid #cccc;
+}
+
+#employee-table{
+    max-width:900px;
+    padding-top:15px;
+    border: 2px solid #cccc;
+    margin-top:15px;
+}
+
+.form-group{
+    max-width:900px;
+    margin: 10px;
+}
+ #name, #role, #start, #months, #mbill, #tbill {
+     margin-top:5px;
+     margin-bottom: 5px;
+ }
