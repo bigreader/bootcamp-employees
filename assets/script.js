@@ -3,29 +3,22 @@ var config = {
     authDomain: "bootcamp-employees-3d8f4.firebaseapp.com",
     databaseURL: "https://bootcamp-employees-3d8f4.firebaseio.com",
     projectId: "bootcamp-employees-3d8f4",
-    storageBucket: "",
+    storageBucket: "bootcamp-employees-3d8f4.appspot.com",
     messagingSenderId: "664257132182"
   };
 firebase.initializeApp(config);
-
+var database = firebase.database();
 
 
 $(document).ready(function() {
 
-	$('#FORM_ID??').on("submit", function(event) {
+	$('#employee-form').on("submit", function(event) {
 		event.preventDefault();
 
-		var name = $('#name-input').val();
-		var role = $('#role-input').val();
-		var startDate = $('#start-date-input').val();
-		var monthlyRate = $('#monthly-rate-input').val();
-
-		var row = $('<tr>');
-		row.append($('<td>').text(name));
-		row.append($('<td>').text(role));
-		row.append($('<td>').text(startDate));
-		row.append($('<td>').text(monthlyRate));
-		$('#EMPLOYEE_TABLE??').append(row);
+		var name = $('#name').val();
+		var role = $('#role').val();
+		var startDate = $('#start').val();
+		var monthlyRate = parseInt($('#mbill').val());
 
 		database.ref("/users").push({
 			name: name,
@@ -36,7 +29,29 @@ $(document).ready(function() {
 
 	});
 
-	
+
+
+	database.ref("/users").orderByChild("monthlyRate").on("child_added", function(snapshot) {
+
+		var employee = snapshot.val();
+
+		var row = $('<tr>');
+		row.append($('<td>').text(employee.name));
+		row.append($('<td>').text(employee.role));
+		row.append($('<td>').text(employee.startDate));
+
+		var startMoment = moment(employee.startDate, 'MM/DD/YYYY');
+		var monthsWorked = moment().diff(startMoment, 'months');
+		row.append($('<td>').text(monthsWorked));
+		
+		row.append($('<td>').text(employee.monthlyRate));
+
+		var totalPay = employee.monthlyRate * monthsWorked;
+		row.append($('<td>').text(totalPay));
+
+		$('#employee-table').append(row);
+
+	});
 
 });
 
