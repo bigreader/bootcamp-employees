@@ -1,3 +1,13 @@
+var config = {
+    apiKey: "AIzaSyCV94moc7hXyIGlBASk7LRyW7UgDHdd4P4",
+    authDomain: "bootcamp-employees-3d8f4.firebaseapp.com",
+    databaseURL: "https://bootcamp-employees-3d8f4.firebaseio.com",
+    projectId: "bootcamp-employees-3d8f4",
+    storageBucket: "",
+    messagingSenderId: "664257132182"
+  };
+firebase.initializeApp(config);
+
 
 
 $(document).ready(function() {
@@ -16,6 +26,13 @@ $(document).ready(function() {
 		row.append($('<td>').text(startDate));
 		row.append($('<td>').text(monthlyRate));
 		$('#EMPLOYEE_TABLE??').append(row);
+
+		database.ref("/users").push({
+			name: name,
+			role: role,
+			startDate: startDate,
+			monthlyRate: monthlyRate
+		});
 
 	});
 
